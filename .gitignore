@@ -213,3 +213,10 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+test/seg_tb.cr.mti
+test/seg_tb.mpf
+*.wlf
+test/work/_info
+*.qdb
+*.qpg
+test/work/_vmake
