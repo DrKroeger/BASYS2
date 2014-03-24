@@ -220,3 +220,11 @@ test/work/_info
 *.qdb
 *.qpg
 test/work/_vmake
+*.dia
+*.lst
+*.xmsgs
+*.bgn
+*.bld
+*.bin
+*.mti
+*.mpf

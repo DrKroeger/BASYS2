@@ -54,7 +54,7 @@ output            dp,
 output reg  [3:0] an
 );
 // Decimal Points Are unused
-assign dp = 0;
+assign dp = 1;
 
 // Counter for Timing of the Anode Signals
 reg  [13:0] cnt;
@@ -74,20 +74,20 @@ always@(posedge clk) begin
   else begin
   // Control the Anode Logic
     if(an == 4'hF) begin
-      an <= 4'h1;
+      an <= ~(4'h1);
     end
-    cnt = cnt + 1;
+    cnt <= cnt + 1;
     if(cnt == 12499) begin
       cnt <= 0;
       an <= {an[2:0],an[3]};
     end
   // Control the Cathode Logic
     case(an)
-    4'h1: seg <= num0;
-    4'h2: seg <= num1;
-    4'h4: seg <= num2;
-    4'h8: seg <= num3;
-    default: seg <= 7'hFF;
+    4'b1110: seg <= ~num0;
+    4'b1101: seg <= ~num1;
+    4'b1011: seg <= ~num2;
+    4'b0111: seg <= ~num3;
+    default: seg <= ~7'hFF;
     endcase
   end
 end
